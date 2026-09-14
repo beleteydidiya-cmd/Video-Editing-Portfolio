@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YDIDIYA BELETE | Video Editor & Motion Designer Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0d14',
+              card: '#121723',
+              accent: '#6366f1',
+              pink: '#ec4899',
+              emerald: '#10b981',
+              purple: '#a855f7'
+            }
+          },
+          aspectRatio: {
+            'video-card': '16 / 9',
+            'vertical-card': '9 / 16'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0d14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-nav {
+      background: rgba(10, 13, 20, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(18, 23, 35, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+    }
+
+    /* Subtle Animated Gradients */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+
+    .animate-glow {
+      animation: pulseGlow 6s infinite ease-in-out;
+    }
+
+    /* Smooth Filter Fade Transitions */
+    .video-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-card.hidden-card {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+  <!-- Background Ambient Glow Effects -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none animate-glow z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-[450px] h-[450px] bg-purple-600/15 rounded-full blur-[140px] pointer-events-none animate-glow z-0" style="animation-delay: 3s;"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center font-heading font-extrabold text-white text-lg shadow-lg group-hover:scale-105 transition-transform duration-300">
+          AR
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-base text-white tracking-tight group-hover:text-indigo-400 transition-colors">
+            YDIDIYA BELETE
+          </span>
+          <span class="text-[11px] text-slate-400 font-medium tracking-wider uppercase">
+            Video Specialist
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about-video" class="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-indigo-400 transition-colors">About Video</a>
+        <a href="#portfolio" class="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-indigo-400 transition-colors">Portfolio</a>
+        <a href="#specialties" class="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-indigo-400 transition-colors">Specialties</a>
+        <a href="#workflow" class="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-indigo-400 transition-colors">Workflow</a>
+        <a href="#testimonials" class="text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-indigo-400 transition-colors">Reviews</a>
+        <a href="#contact" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 hover:-translate-y-0.5 transition-all duration-300">
+          Hire Me
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg focus:outline-none">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-card/95 border-b border-white/10 backdrop-blur-2xl px-6 py-6 space-y-4">
+      <a href="#about-video" class="mobile-link block text-sm font-semibold text-slate-200 hover:text-indigo-400">About Video</a>
+      <a href="#portfolio" class="mobile-link block text-sm font-semibold text-slate-200 hover:text-indigo-400">Portfolio</a>
+      <a href="#specialties" class="mobile-link block text-sm font-semibold text-slate-200 hover:text-indigo-400">Specialties</a>
+      <a href="#workflow" class="mobile-link block text-sm font-semibold text-slate-200 hover:text-indigo-400">Workflow</a>
+      <a href="#testimonials" class="mobile-link block text-sm font-semibold text-slate-200 hover:text-indigo-400">Reviews</a>
+      <a href="#contact" class="mobile-link inline-block w-full text-center px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white shadow-lg">
+        Hire Me
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28 space-y-24">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-8 flex flex-col items-center text-center">
+      
+      <!-- Profile Avatar Badge -->
+      <div class="relative mb-8 group">
+        <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-75 blur-md group-hover:opacity-100 transition duration-500"></div>
+        <img 
+          src="https://i.postimg.cc/KjZhnzrn/5843548184876093371-121.jpg" 
+          alt="YDIDIYA BELETE Profile" 
+          class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-white/20 shadow-2xl"
+          onerror="this.src='https://placehold.co/150x150/1e1e2d/ffffff?text=AR'"
+        />
+        <div class="absolute bottom-0 right-0 bg-brand-dark/90 border border-white/10 rounded-full px-2.5 py-1 text-xs flex items-center gap-1.5 shadow-lg" title="Available Worldwide">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="text-[11px] text-slate-300 font-semibold tracking-wide">Available for Hire</span>
+        </div>
+      </div>
+
+      <!-- Main Catchy Tagline -->
+      <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl mb-6">
+        Creating High-Impact Edits for <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">Creators & Brands.</span>
+      </h1>
+
+      <!-- Short Bio Tailored to Core Work Areas -->
+      <p class="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl font-normal leading-relaxed mb-10">
+        Specialized in high-retention <span class="text-slate-200 font-semibold">Motion Graphics</span>, viral <span class="text-slate-200 font-semibold">Social Media Edits</span>, immersive <span class="text-slate-200 font-semibold">Sound Design</span>, and cinematic <span class="text-slate-200 font-semibold">Color Grade</span>.
+      </p>
+
+
+      <!-- ABOUT ME FEATURED VIDEO PLAYER -->
+      <div id="about-video" class="w-full max-w-4xl mb-12 scroll-mt-28">
+        <div class="glass-card rounded-3xl p-3 sm:p-4 relative group border border-white/15 shadow-2xl hover:border-indigo-500/50 transition-all duration-300">
+          
+          <!-- Video Card with YouTube Trigger -->
+          <div class="video-card relative aspect-video rounded-2xl bg-slate-900 overflow-hidden cursor-pointer"
+               data-category="intro"
+               data-orientation="landscape"
+               data-youtube-id="UsH349ldJJU"
+               data-title="About Me — Editor Introduction & Showreel"
+               data-client="YDIDIYA BELETE"
+               data-views="Featured Video"
+               data-duration="01:30"
+               data-description="Get to know my video editing philosophy, creative process, and visual style in this quick 90-second introduction.">
+            
+            <!-- Video Thumbnail Cover -->
+            <img 
+              src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&auto=format&fit=crop&q=80" 
+              alt="About Me Video Cover" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-90"
+              onerror="this.src='https://placehold.co/1200x675/1e1e2d/ffffff?text=About+Me+Video'"
+            />
+            
+            <!-- Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+
+            <!-- Glowing Center Play Button -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:shadow-indigo-500/50 transition-all duration-300 border border-white/40 backdrop-blur-md">
+                <i data-lucide="play" class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <!-- Top Left Tag -->
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg backdrop-blur-md flex items-center gap-2">
+                <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+                <span>About Me Video</span>
+              </span>
+            </div>
+
+            <!-- Bottom Video Metadata Text -->
+            <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-end justify-between text-left">
+              <div>
+                <h3 class="font-heading font-bold text-white text-base sm:text-2xl group-hover:text-indigo-300 transition-colors leading-tight">
+                  Watch My Editor Showreel & Introduction
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 hidden sm:block mt-1.5 font-normal">
+                  Click to play presentation (01:30) • Learn about my editing workflow & background
+                </p>
+              </div>
+              <span class="px-3 py-1 rounded-lg bg-black/80 text-slate-200 text-xs font-mono backdrop-blur-md border border-white/10">
+                01:30
+              </span>
+            </div>
+          </div>
+
+        </div>
+        <p class="text-xs text-slate-500 mt-3 text-center">
+          💡 <span class="text-slate-400">How to update:</span> Replace <code class="text-indigo-400">data-youtube-id="tgbNymZ7vqY"</code> with your actual YouTube intro video ID in VS Code.
+        </p>
+      </div>
+
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-14">
+        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-xl shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+          <span>View Selected Works</span>
+          <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl font-heading font-bold text-sm bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+          <span>Start a Project</span>
+          <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+        </a>
+      </div>
+
+      <!-- Social Channels Bar -->
+      <div class="flex items-center gap-4 pt-4 border-t border-white/10 w-full max-w-md justify-center">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-pink-500 hover:bg-white/10 hover:scale-110 transition-all duration-300" title="Instagram Profile">
+          <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-blue-400 hover:bg-white/10 hover:scale-110 transition-all duration-300" title="LinkedIn Profile">
+          <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+        <a href="https://t.me/eduagnik" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-sky-400 hover:bg-white/10 hover:scale-110 transition-all duration-300" title="X / Twitter">
+          <i data-lucide="telegram" class="w-5 h-5"></i>
+        </a>
+      </div>
+
+      <!-- Key Metrics Counter Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl mt-16">
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-1">50M+</div>
+          <div class="text-xs text-slate-400 font-medium">Total Video Views</div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-indigo-400 mb-1">180+</div>
+          <div class="text-xs text-slate-400 font-medium">Projects Delivered</div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-purple-400 mb-1">4 Core</div>
+          <div class="text-xs text-slate-400 font-medium">Specialized Skills</div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-pink-400 mb-1">100%</div>
+          <div class="text-xs text-slate-400 font-medium">On-Time Delivery</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PORTFOLIO SHOWCASE SECTION -->
+    <section id="portfolio" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 scroll-mt-28">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <i data-lucide="clapperboard" class="w-4 h-4"></i>
+            <span>Curated Showcase</span>
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Selected Video Projects
+          </h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-md">
+          Filter through recent video edits. Supports both landscape (16:9) and vertical portrait (9:16) formats.
+        </p>
+      </div>
+
+      <!-- Category Filter Buttons (Your 4 core areas) -->
+      <div class="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none" id="filter-tabs">
+        <button data-category="all" class="filter-btn active px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition-all duration-300 whitespace-nowrap shadow-md">
+          All Works (6)
+        </button>
+        <button data-category="motion" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+          Motion Graphics
+        </button>
+        <button data-category="social" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+          Social Media Edits
+        </button>
+        <button data-category="sound" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+          Sound Design
+        </button>
+        <button data-category="color" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+          Color Grade
+        </button>
+      </div>
+
+      <!-- Video Grid (Items start alignment keeps mixed vertical/horizontal heights clean) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start" id="portfolio-grid">
+        
+        <!-- Video Card 1: Motion Graphics (LANDSCAPE 16:9) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="motion"
+             data-orientation="landscape"
+             data-youtube-id="5D8n2oyHPZ8"
+             data-title="3D SaaS Product Launch & Motion Graphics"
+             data-client="Nexus Tech Studio"
+             data-views="340K Views"
+             data-duration="00:16"
+             data-description="Custom vector transitions, glass reflection 3D elements, kinetic logo intro, and motion graphics created in After Effects for brand reveal.">
+          
+          <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://i.postimg.cc/j5ShPYn2/Screenshot-(9).png" 
+              alt="Motion Graphics Project Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/800x450/1e1e2d/ffffff?text=Motion+Graphics'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white backdrop-blur-md">Motion Graphics</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              00:16
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-emerald-400">Nexus Tech Studio</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 340K</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              3D SaaS Product Launch & Motion Graphics
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              Vector shape animations, 3D product renders, dynamic callout tags, and smooth UI transitions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Card 2: Social Media Edits (PORTRAIT 9:16 VERTICAL REEL/SHORT) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="social"
+             data-orientation="portrait"
+             data-youtube-id="LEJDFvWCHQM"
+             data-title="High Retention Viral Reel & TikTok"
+             data-client="Mindset Studio"
+             data-views="920K Views"
+             data-duration="0:37"
+             data-description="Fast-paced short-form content with animated captions, sound effects, icon overlays, and zoom-in cutaways engineered for viral social engagement.">
+          
+          <!-- Note aspect-vertical-card (9:16) -->
+          <div class="relative aspect-vertical-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&auto=format&fit=crop&q=80" 
+              alt="Social Media Edit Project Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/450x800/1e1e2d/ffffff?text=Vertical+Reel'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-pink-600/90 text-white backdrop-blur-md">Social Media Edits</span>
+              <span class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-black/70 text-slate-200 border border-white/10 backdrop-blur-md">9:16 Reel</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              0:37
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-pink-400">Mindset Studio</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 920K</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              High Retention Viral Reel & TikTok
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              Kinetic subtitle placement, hook optimizations, audio pops, and high-energy short-form pacing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Card 3: Sound Design (LANDSCAPE 16:9) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="sound"
+             data-orientation="landscape"
+             data-youtube-id="E9Bp2zZhZHI"
+             data-title="Cinematic Sound Design & Foley Layering"
+             data-client="Atmosphere Media"
+             data-views="1.5M Views"
+             data-duration="00:23"
+             data-description="Professional audio mixing showcasing custom Foley recording, sub-bass impacts, riser transitions, vocal clarity processing, and spatial audio field dynamics.">
+          
+          <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://i.postimg.cc/j5ShPYn2/Screenshot-(9).png" 
+              alt="Sound Design Project Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/800x450/1e1e2d/ffffff?text=Sound+Design'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-indigo-600/90 text-white backdrop-blur-md">Sound Design</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              00:23
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-indigo-400">Atmosphere Media</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 1.5M</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              Cinematic Sound Design & Foley Layering
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              Layered Foley impacts, riser builds, background ambience synthesis, and clean voice EQ.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Card 4: Color Grade (LANDSCAPE 16:9) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="color"
+             data-orientation="landscape"
+             data-youtube-id="3JZ_D3ELwOQ"
+             data-title="Commercial Film Color Grade & LUTs"
+             data-client="Vogue Urban Wear"
+             data-views="580K Views"
+             data-duration="01:20"
+             data-description="Color grading crafted in DaVinci Resolve featuring precise skin tone correction, custom teal-orange film aesthetic, and dynamic exposure balancing.">
+          
+          <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&auto=format&fit=crop&q=80" 
+              alt="Color Grade Project Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/800x450/1e1e2d/ffffff?text=Color+Grade'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-purple-600/90 text-white backdrop-blur-md">Color Grade</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              01:20
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-purple-400">Vogue Urban Wear</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 580K</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              Commercial Film Color Grade & LUTs
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              DaVinci Resolve node trees, skin-tone isolation, film grain integration, and cinematic mood transforms.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Card 5: Motion Graphics (LANDSCAPE 16:9) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="motion"
+             data-orientation="landscape"
+             data-youtube-id="UsH349ldJJU"
+             data-title="Animated Lower Thirds & Title Overlay Pack"
+             data-client="Apex Cinema"
+             data-views="710K Views"
+             data-duration="00:24"
+             data-description="Kinetic title animations, custom dynamic lower thirds, subscriber callouts, and clean After Effects template design for modern YouTube channels.">
+          
+          <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&auto=format&fit=crop&q=80" 
+              alt="Motion Graphics Title Pack Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/800x450/1e1e2d/ffffff?text=Motion+Graphics'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white backdrop-blur-md">Motion Graphics</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              00:24
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-emerald-400">Apex Cinema</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 710K</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              Animated Lower Thirds & Title Overlays
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              Modular lower-third packages, title cards, callout badges, and kinetic text graphics.
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Card 6: Social Media Edits (PORTRAIT 9:16 VERTICAL SHORT) -->
+        <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+             data-category="social"
+             data-orientation="portrait"
+             data-youtube-id="5z2WKnW4Q4A"
+             data-title="Fast-Paced Fitness Reel & Shorts Edit"
+             data-client="FitPro Academy"
+             data-views="1.8M Views"
+             data-duration="0:45"
+             data-description="High-octane motivational short video featuring beat synchronization, dynamic zooms, pop-up text graphics, and aggressive audio mixing.">
+          
+          <div class="relative aspect-vertical-card bg-slate-900 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" 
+              alt="Social Media Fitness Edit Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+              onerror="this.src='https://placehold.co/450x800/1e1e2d/ffffff?text=Vertical+Shorts'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-indigo-500 transition-all duration-300 border border-white/30 backdrop-blur-sm">
+                <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
+              </div>
+            </div>
+
+            <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-pink-600/90 text-white backdrop-blur-md">Social Media Edits</span>
+              <span class="px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-black/70 text-slate-200 border border-white/10 backdrop-blur-md">9:16 Short</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/80 text-slate-200 text-xs font-mono">
+              01:20
+            </div>
+          </div>
+
+          <div class="p-5 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-semibold text-pink-400">FitPro Academy</span>
+              <span class="flex items-center gap-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> 1.8M</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg group-hover:text-indigo-300 transition-colors line-clamp-1">
+              Fast-Paced Fitness Reel & Shorts Edit
+            </h3>
+            <p class="text-slate-400 text-xs line-clamp-2 leading-relaxed">
+              Beat-synced cuts, high-octane background score integration, and retention-focused text animations.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CORE SPECIALTIES & SOFTWARE SECTION -->
+    <section id="specialties" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 scroll-mt-28">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Primary Expertise</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Four Core Video Work Areas
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          I specialize exclusively in four key video editing disciplines to deliver top-tier visual content.
+        </p>
+      </div>
+
+      <!-- 4 Specialty Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Specialty 1: Motion Graphics -->
+        <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-white text-xl">1. Motion Graphics</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            2D/3D kinetic graphics, animated lower thirds, title cards, logo reveals, and custom vector UI callouts designed to bring static visuals to life.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">After Effects</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">3D Camera Tracking</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Kinetic Typography</span>
+          </div>
+        </div>
+
+        <!-- Specialty 2: Social Media Edits -->
+        <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-white text-xl">2. Social Media Edits</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            High-retention short-form videos tailored for Instagram Reels, TikTok, and YouTube Shorts with dynamic subtitles, hooks, and engagement pop-ups.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Reels & TikToks</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Animated Subtitles</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Fast Pacing</span>
+          </div>
+        </div>
+
+        <!-- Specialty 3: Sound Design -->
+        <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
+            <i data-lucide="volume-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-white text-xl">3. Sound Design</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Rich Foley effects, crisp vocal cleanup, atmospheric ambient soundscapes, sub-bass impacts, and seamless music transition mixing.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Foley Layering</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Audio Cleaning</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">EQ & Mastering</span>
+          </div>
+        </div>
+
+        <!-- Specialty 4: Color Grade -->
+        <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center">
+            <i data-lucide="palette" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-white text-xl">4. Color Grade</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Cinematic color balancing in DaVinci Resolve, natural skin-tone correction, custom LUT generation, and shot-to-shot matching.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">DaVinci Resolve</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Skin Tone Match</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Custom LUTs</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Software Badges Showcase -->
+      <div class="glass-card rounded-2xl p-8 text-center space-y-6">
+        <h4 class="font-heading font-bold text-white text-lg">Industry Software Stack</h4>
+        <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-semibold text-slate-300">
+          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Adobe After Effects
+          </span>
+          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
+            <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> Adobe Premiere Pro
+          </span>
+          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
+            <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span> DaVinci Resolve
+          </span>
+          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Adobe Audition
+          </span>
+          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Blender 3D
+          </span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WORKFLOW PROCESS SECTION -->
+    <section id="workflow" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 scroll-mt-28">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+          <i data-lucide="git-commit" class="w-3.5 h-3.5"></i>
+          <span>Seamless Process</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          How We Work Together
+        </h2>
+        <p class="text-slate-400 text-sm">
+          A streamlined 4-step workflow to turn your raw video files into viral polished content.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 relative">
+          <div class="text-xs font-mono font-bold text-indigo-400">01 / BRIEF</div>
+          <h3 class="font-heading font-bold text-white text-base">Raw Footage & Concept</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Send over your raw footage, video references, and target channel requirements via Google Drive or Frame.io.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 relative">
+          <div class="text-xs font-mono font-bold text-pink-400">02 / EDIT</div>
+          <h3 class="font-heading font-bold text-white text-base">Assembly & Pacing</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Crafting the storytelling narrative, cutting filler pauses, adding hooks, and building the initial edit structure.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 relative">
+          <div class="text-xs font-mono font-bold text-purple-400">03 / POLISH</div>
+          <h3 class="font-heading font-bold text-white text-base">Graphics, Sound & Color</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Applying 2D/3D motion graphics, mixing sound design FX, syncing music, and executing DaVinci color grading.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 relative">
+          <div class="text-xs font-mono font-bold text-emerald-400">04 / DELIVERY</div>
+          <h3 class="font-heading font-bold text-white text-base">Review & Final Render</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Reviewing feedback, adjusting revisions, and delivering master 4K / 1080p files optimized for YouTube or Socials.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CLIENT REVIEWS SECTION -->
+    <section id="testimonials" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 scroll-mt-28">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>Client Satisfaction</span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          What Clients Say
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex text-amber-400 gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+            "Alex transformed our YouTube videos completely. His sound design and motion graphics brought our retention rate up by over 45% in just two months!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-9 h-9 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-white text-xs">
+              MK
+            </div>
+            <div>
+              <div class="font-heading font-bold text-white text-xs">Marcus Vance</div>
+              <div class="text-[11px] text-slate-400">Tech Creator (850K Subs)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex text-amber-400 gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+            "The short-form Reels Alex edited hit over 1 million views on Instagram. His pacing and subtitle animation hooks are top tier!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-9 h-9 rounded-full bg-pink-600 flex items-center justify-center font-bold text-white text-xs">
+              SL
+            </div>
+            <div>
+              <div class="font-heading font-bold text-white text-xs">Sarah Lin</div>
+              <div class="text-[11px] text-slate-400">Founder, Glow Socials</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <div class="flex text-amber-400 gap-1">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+            "Extremely reliable and super fast turnarounds. The color grading on our commercial shoot made it look like a high-budget feature film."
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white text-xs">
+              DR
+            </div>
+            <div>
+              <div class="font-heading font-bold text-white text-xs">David Ross</div>
+              <div class="text-[11px] text-slate-400">Creative Director, Apex</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT & INQUIRY FORM SECTION -->
+    <section id="contact" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 scroll-mt-28">
+      
+      <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>Get In Touch</span>
+            </div>
+            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              Ready to elevate your video content?
+            </h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Have a project in mind or need recurring video editing services? Fill out the form or reach out directly to discuss your vision!
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-3 text-slate-300 text-sm">
+                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-400">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] text-slate-400">Direct Email</div>
+                  <a href="mailto:alexrivera.edits@gmail.com" class="font-semibold text-white hover:text-indigo-400 transition-colors">alexrivera.edits@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 text-slate-300 text-sm">
+                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-indigo-400">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] text-slate-400">Response Time</div>
+                  <div class="font-semibold text-white">Under 24 Hours</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your Name</label>
+              <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-sm">
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Your Email</label>
+              <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-sm">
+            </div>
+
+            <div>
+              <label for="service" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Primary Specialty Needed</label>
+              <select id="service" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors text-sm">
+                <option value="motion">Motion Graphics</option>
+                <option value="social">Social Media Edits (Reels / TikToks / Shorts)</option>
+                <option value="sound">Sound Design & Foley</option>
+                <option value="color">Color Grade</option>
+                <option value="full">Full Video Package</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Project Details & Link to Raw Footage</label>
+              <textarea id="message" rows="4" required placeholder="Tell me about your video project, estimated deadline, and references..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors text-sm resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-xl font-heading font-bold text-sm bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-xl shadow-indigo-600/30 transition-all duration-300 flex items-center justify-center gap-2">
+              <span>Send Project Inquiry</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+            <div id="form-status" class="text-xs text-center font-medium hidden"></div>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-brand-dark py-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-500">
+        © <span id="current-year">2026</span> YDIDIYA BELETE Video Portfolio. All rights reserved.
+      </p>
+
+      <a href="#hero" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors">
+        <span>Back to top</span>
+        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </footer>
+
+
+  <!-- YOUTUBE VIDEO POPUP MODAL (Supports both 16:9 Landscape and 9:16 Portrait) -->
+  <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    
+    <div class="relative w-full max-w-4xl glass-card rounded-2xl overflow-hidden shadow-2xl border border-white/20 transform scale-95 transition-all duration-300" id="modal-container">
+      
+      <!-- Close Button -->
+      <button id="close-modal-btn" aria-label="Close Video Modal" class="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/70 text-slate-300 hover:text-white hover:bg-black transition-colors focus:outline-none">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Dynamic Video Aspect Ratio Frame -->
+      <div id="modal-aspect-frame" class="relative aspect-video bg-black transition-all duration-300">
+        <iframe id="modal-youtube-iframe" class="w-full h-full" src="" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <!-- Modal Meta Details Footer -->
+      <div class="p-6 bg-brand-card space-y-2">
+        <div class="flex items-center justify-between">
+          <span id="modal-client" class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Client</span>
+          <span id="modal-views" class="text-xs text-slate-400 font-mono">0 Views</span>
+        </div>
+        <h3 id="modal-title" class="font-heading font-bold text-white text-xl">Video Title</h3>
+        <p id="modal-description" class="text-slate-400 text-xs leading-relaxed">Video description...</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Dynamic Year
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Mobile Drawer Menu Handler
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      mobileBtn?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // PORTFOLIO FILTERING LOGIC
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const videoCards = document.querySelectorAll('#portfolio-grid .video-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+            b.classList.add('bg-white/5', 'border', 'border-white/10', 'text-slate-400');
+          });
+
+          btn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+          btn.classList.remove('bg-white/5', 'border', 'border-white/10', 'text-slate-400');
+
+          const category = btn.getAttribute('data-category');
+
+          videoCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+              card.classList.remove('hidden-card');
+            } else {
+              card.classList.add('hidden-card');
+            }
+          });
+        });
+      });
+
+      // YOUTUBE MODAL POPUP LOGIC WITH DYNAMIC PORTRAIT & LANDSCAPE SUPPORT
+      const allVideoCards = document.querySelectorAll('.video-card');
+      const videoModal = document.getElementById('video-modal');
+      const modalContainer = document.getElementById('modal-container');
+      const modalAspectFrame = document.getElementById('modal-aspect-frame');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const iframe = document.getElementById('modal-youtube-iframe');
+      
+      const modalClient = document.getElementById('modal-client');
+      const modalViews = document.getElementById('modal-views');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDesc = document.getElementById('modal-description');
+
+      // Open Modal on Video Card Click
+      allVideoCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const ytId = card.getAttribute('data-youtube-id');
+          const title = card.getAttribute('data-title');
+          const client = card.getAttribute('data-client');
+          const views = card.getAttribute('data-views');
+          const desc = card.getAttribute('data-description');
+          const orientation = card.getAttribute('data-orientation') || 'landscape';
+
+          iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
+
+          // Handle Vertical Portrait vs. Landscape Horizontal Modal Sizing
+          if (orientation === 'portrait') {
+            modalContainer.classList.remove('max-w-4xl');
+            modalContainer.classList.add('max-w-sm');
+            modalAspectFrame.classList.remove('aspect-video');
+            modalAspectFrame.classList.add('aspect-vertical-card');
+          } else {
+            modalContainer.classList.remove('max-w-sm');
+            modalContainer.classList.add('max-w-4xl');
+            modalAspectFrame.classList.remove('aspect-vertical-card');
+            modalAspectFrame.classList.add('aspect-video');
+          }
+
+          modalTitle.textContent = title || 'Video Showcase';
+          modalClient.textContent = client || 'Client Project';
+          modalViews.textContent = views || '';
+          modalDesc.textContent = desc || '';
+
+          videoModal.classList.remove('opacity-0', 'pointer-events-none');
+          modalContainer.classList.remove('scale-95');
+          modalContainer.classList.add('scale-100');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Function to Close Modal
+      const closeModal = () => {
+        videoModal.classList.add('opacity-0', 'pointer-events-none');
+        modalContainer.classList.remove('scale-100');
+        modalContainer.classList.add('scale-95');
+        iframe.src = '';
+        document.body.style.overflow = '';
+      };
+
+      closeModalBtn?.addEventListener('click', closeModal);
+
+      videoModal?.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      // Mock Form Submission
+      const contactForm = document.getElementById('contact-form');
+      const formStatus = document.getElementById('form-status');
+
+      contactForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        formStatus.classList.remove('hidden', 'text-red-400');
+        formStatus.classList.add('text-emerald-400');
+        formStatus.textContent = 'Thank you! Your message was sent successfully. I will get back to you shortly.';
+        contactForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
