@@ -1233,11 +1233,12 @@
         }
       });
 
-      // Open a prepared email so this static site can receive inquiries without a backend.
+      // Submit the inquiry through FormSubmit without opening the visitor's email app.
       const contactForm = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
+      const submitButton = contactForm?.querySelector('button[type="submit"]');
 
-      contactForm?.addEventListener('submit', (e) => {
+      contactForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         if (!contactForm.checkValidity()) {
@@ -1247,23 +1248,37 @@
 
         const formData = new FormData(contactForm);
         const name = formData.get('name');
-        const email = formData.get('email');
-        const service = formData.get('service');
-        const message = formData.get('message');
-        const subject = `Project inquiry from ${name}`;
-        const body = [
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Service needed: ${service}`,
-          '',
-          'Project details:',
-          message
-        ].join('\n');
+        formData.append('_subject', `Project inquiry from ${name}`);
+        formData.append('_replyto', formData.get('email'));
 
-        window.location.href = `mailto:beleteydidiya@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        formStatus.classList.remove('hidden', 'text-red-400');
-        formStatus.classList.add('text-emerald-400');
-        formStatus.textContent = 'Your email app is opening with the inquiry ready to send.';
+        submitButton.disabled = true;
+        submitButton.querySelector('span').textContent = 'Sending...';
+        formStatus.className = 'text-xs text-center font-medium text-slate-400';
+        formStatus.textContent = 'Sending your inquiry...';
+
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/beleteydidiya@gmail.com', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json'
+            },
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error('The form service returned an error.');
+          }
+
+          contactForm.reset();
+          formStatus.className = 'text-xs text-center font-medium text-emerald-400';
+          formStatus.textContent = `Thanks, ${name}! Your inquiry was sent successfully.`;
+        } catch (error) {
+          formStatus.className = 'text-xs text-center font-medium text-red-400';
+          formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.querySelector('span').textContent = 'Send Project Inquiry';
+        }
       });
     });
   </script>
