@@ -282,21 +282,21 @@
       </div>
 
       <!-- Key Metrics Counter Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl mt-16">
+      <div id="metrics-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl mt-16">
         <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-1">100K+</div>
+          <div class="metric-value font-heading font-extrabold text-3xl sm:text-4xl text-white mb-1" data-target="100" data-suffix="K+">0K+</div>
           <div class="text-xs text-slate-400 font-medium">Total Video Views</div>
         </div>
         <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-indigo-400 mb-1">237+</div>
+          <div class="metric-value font-heading font-extrabold text-3xl sm:text-4xl text-indigo-400 mb-1" data-target="237" data-suffix="+">0+</div>
           <div class="text-xs text-slate-400 font-medium">Projects Delivered</div>
         </div>
         <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-purple-400 mb-1">4 Core</div>
+          <div class="metric-value font-heading font-extrabold text-3xl sm:text-4xl text-purple-400 mb-1" data-target="4" data-suffix=" Core">0 Core</div>
           <div class="text-xs text-slate-400 font-medium">Specialized Skills</div>
         </div>
         <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="font-heading font-extrabold text-3xl sm:text-4xl text-pink-400 mb-1">100%</div>
+          <div class="metric-value font-heading font-extrabold text-3xl sm:text-4xl text-pink-400 mb-1" data-target="100" data-suffix="%">0%</div>
           <div class="text-xs text-slate-400 font-medium">On-Time Delivery</div>
         </div>
       </div>
@@ -796,18 +796,47 @@
       </div>
 
       <!-- Software Badges Showcase -->
-      <div class="glass-card rounded-2xl p-8 text-center space-y-6">
+      <div id="software-stack" class="glass-card rounded-2xl p-8 text-center space-y-6">
         <h4 class="font-heading font-bold text-white text-lg">Industry Software Stack</h4>
-        <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-semibold text-slate-300">
-          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
-            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Adobe After Effects
-          </span>
-          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
-            <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> Adobe Premiere Pro
-          </span>
-          <span class="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-2 hover:border-indigo-500/50 transition-colors">
-            <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span> DaVinci Resolve
-          </span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          <div class="rounded-xl bg-white/5 border border-white/10 p-4 hover:border-purple-500/50 transition-colors">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://img.icons8.com/color/96/adobe-after-effects--v1.png" alt="Adobe After Effects logo" class="w-9 h-9 object-contain" loading="lazy" decoding="async">
+                <span class="text-sm font-semibold text-white">After Effects</span>
+              </div>
+              <span class="skill-value text-lg font-bold text-purple-300" data-skill="90">0%</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-label="After Effects skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+              <div class="skill-progress h-full w-0 rounded-full bg-purple-400 transition-[width] duration-[1200ms] ease-out" data-skill="90"></div>
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-white/5 border border-white/10 p-4 hover:border-indigo-500/50 transition-colors">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://img.icons8.com/color/96/adobe-premiere-pro--v1.png" alt="Adobe Premiere Pro logo" class="w-9 h-9 object-contain" loading="lazy" decoding="async">
+                <span class="text-sm font-semibold text-white">Premiere Pro</span>
+              </div>
+              <span class="skill-value text-lg font-bold text-indigo-300" data-skill="99">0%</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-label="Premiere Pro skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="99">
+              <div class="skill-progress h-full w-0 rounded-full bg-indigo-400 transition-[width] duration-[1200ms] ease-out" data-skill="99"></div>
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-white/5 border border-white/10 p-4 hover:border-pink-500/50 transition-colors">
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://cdn.simpleicons.org/davinciresolve/FF6B8A" alt="DaVinci Resolve logo" class="w-9 h-9" loading="lazy" decoding="async">
+                <span class="text-sm font-semibold text-white">DaVinci Resolve</span>
+              </div>
+              <span class="skill-value text-lg font-bold text-pink-300" data-skill="80">0%</span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-label="DaVinci Resolve skill level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+              <div class="skill-progress h-full w-0 rounded-full bg-pink-400 transition-[width] duration-[1200ms] ease-out" data-skill="80"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1116,6 +1145,78 @@
 
       // Dynamic Year
       document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Animate software skill levels when the stack enters the viewport.
+      const softwareStack = document.getElementById('software-stack');
+      const skillValues = softwareStack?.querySelectorAll('.skill-value');
+      const skillProgress = softwareStack?.querySelectorAll('.skill-progress');
+
+      const animateSkills = () => {
+        skillValues?.forEach(value => {
+          const target = Number(value.dataset.skill);
+          const start = performance.now();
+          const duration = 1200;
+
+          const count = now => {
+            const progress = Math.min((now - start) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            value.textContent = `${Math.round(target * easedProgress)}%`;
+            if (progress < 1) requestAnimationFrame(count);
+          };
+
+          requestAnimationFrame(count);
+        });
+
+        skillProgress?.forEach(progress => {
+          progress.style.width = `${progress.dataset.skill}%`;
+        });
+      };
+
+      if (softwareStack && 'IntersectionObserver' in window) {
+        const skillObserver = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) {
+            animateSkills();
+            skillObserver.disconnect();
+          }
+        }, { threshold: 0.35 });
+        skillObserver.observe(softwareStack);
+      } else {
+        animateSkills();
+      }
+
+      // Count the headline metrics up from zero when they enter the viewport.
+      const metricsGrid = document.getElementById('metrics-grid');
+      const metricValues = metricsGrid?.querySelectorAll('.metric-value');
+
+      const animateMetrics = () => {
+        metricValues?.forEach(value => {
+          const target = Number(value.dataset.target);
+          const suffix = value.dataset.suffix || '';
+          const start = performance.now();
+          const duration = 1400;
+
+          const count = now => {
+            const progress = Math.min((now - start) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            value.textContent = `${Math.round(target * easedProgress)}${suffix}`;
+            if (progress < 1) requestAnimationFrame(count);
+          };
+
+          requestAnimationFrame(count);
+        });
+      };
+
+      if (metricsGrid && 'IntersectionObserver' in window) {
+        const metricsObserver = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) {
+            animateMetrics();
+            metricsObserver.disconnect();
+          }
+        }, { threshold: 0.35 });
+        metricsObserver.observe(metricsGrid);
+      } else {
+        animateMetrics();
+      }
 
       // Mobile Drawer Menu Handler
       const mobileBtn = document.getElementById('mobile-menu-btn');
