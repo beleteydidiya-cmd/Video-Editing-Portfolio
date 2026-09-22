@@ -1338,6 +1338,48 @@
       const contactForm = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
       const submitButton = contactForm?.querySelector('button[type="submit"]');
+      const messageLimit = 2;
+      const messageWindowMs = 4 * 60 * 60 * 1000;
+      const sentMessageKey = 'ydidiya-sent-inquiries';
+
+      const getRecentSentTimes = email => {
+        try {
+          const sentMessages = JSON.parse(localStorage.getItem(sentMessageKey) || '{}');
+          const normalizedEmail = email.toLowerCase();
+          const now = Date.now();
+          const recentTimes = Array.isArray(sentMessages[normalizedEmail])
+            ? sentMessages[normalizedEmail].filter(time => now - time < messageWindowMs)
+            : [];
+          sentMessages[normalizedEmail] = recentTimes;
+          localStorage.setItem(sentMessageKey, JSON.stringify(sentMessages));
+          return recentTimes;
+        } catch (error) {
+          return [];
+        }
+      };
+
+      const recordSentMessage = email => {
+        try {
+          const sentMessages = JSON.parse(localStorage.getItem(sentMessageKey) || '{}');
+          const normalizedEmail = email.toLowerCase();
+          sentMessages[normalizedEmail] = [...getRecentSentTimes(normalizedEmail), Date.now()];
+          localStorage.setItem(sentMessageKey, JSON.stringify(sentMessages));
+        } catch (error) {
+          // Continue normally if browser storage is unavailable.
+        }
+      };
+
+      const showMessageLimit = email => {
+        const recentTimes = getRecentSentTimes(email);
+        const nextAvailableAt = Math.min(...recentTimes) + messageWindowMs;
+        const minutesRemaining = Math.max(1, Math.ceil((nextAvailableAt - Date.now()) / 60000));
+        const hoursRemaining = Math.floor(minutesRemaining / 60);
+        const remainingText = hoursRemaining > 0
+          ? `${hoursRemaining} hour${hoursRemaining === 1 ? '' : 's'} and ${minutesRemaining % 60} minutes`
+          : `${minutesRemaining} minute${minutesRemaining === 1 ? '' : 's'}`;
+        formStatus.className = 'text-xs text-center font-medium text-amber-300';
+        formStatus.textContent = `You have reached the limit of 2 messages. Try again in about ${remainingText}. Check my Gmail inbox, Spam, and Promotions within 24 hours. If there is no reply, contact me directly by phone.`;
+      };
 
       contactForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -1349,8 +1391,15 @@
 
         const formData = new FormData(contactForm);
         const name = formData.get('name');
+        const email = String(formData.get('email')).trim().toLowerCase();
+
+        if (getRecentSentTimes(email).length >= messageLimit) {
+          showMessageLimit(email);
+          return;
+        }
+
         formData.append('_subject', `Project inquiry from ${name}`);
-        formData.append('_replyto', formData.get('email'));
+        formData.append('_replyto', email);
         formData.append('_captcha', 'false');
         formData.append('_template', 'table');
 
@@ -1375,8 +1424,12 @@
           }
 
           contactForm.reset();
+          recordSentMessage(email);
           formStatus.className = 'text-xs text-center font-medium text-emerald-400';
-          formStatus.textContent = `Thanks, ${name}! Your inquiry was accepted. Check Gmail, including Spam and Promotions.`;
+          const sentCount = getRecentSentTimes(email).length;
+          formStatus.textContent = sentCount >= messageLimit
+            ? 'Your second message was accepted. You can send again after 4 hours. Check Gmail inbox, Spam, and Promotions within 24 hours. If there is no reply, contact me directly by phone.'
+            : `Thanks, ${name}! Your inquiry was accepted. Check Gmail, including Spam and Promotions.`;
         } catch (error) {
           formStatus.className = 'text-xs text-center font-medium text-red-400';
           formStatus.textContent = 'Delivery is not active yet. Open the FormSubmit activation email sent to beleteydidiya@gmail.com, then try again.';
