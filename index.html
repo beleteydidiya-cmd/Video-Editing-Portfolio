@@ -96,6 +96,18 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    #portfolio-grid > .video-card {
+      order: 2;
+    }
+
+    #portfolio-grid > .video-card:first-child {
+      order: 0;
+    }
+
+    #portfolio-grid > .video-card[data-category="long"] {
+      order: 1;
+    }
+
     .video-card.hidden-card {
       opacity: 0;
       transform: scale(0.92);
@@ -319,13 +331,16 @@
         </div>
       </div>
 
-      <!-- Category Filter Buttons (Your 4 core areas) -->
+      <!-- Category Filter Buttons -->
       <div class="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none" id="filter-tabs">
         <button data-category="all" class="filter-btn active px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition-all duration-300 whitespace-nowrap shadow-md">
-          All Works (6)
+          All Works (12)
         </button>
         <button data-category="motion" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
           Motion Graphics
+        </button>
+        <button data-category="long" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+          Long-Form Edits
         </button>
         <button data-category="social" class="filter-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
           Social Media Edits
@@ -709,6 +724,102 @@
           </div>
         </div>
 
+      
+          <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+               data-category="long"
+               data-orientation="landscape"
+               data-youtube-id="Vx7rpFKqkrA"
+               data-title="Long-Form Educational Edit 01"
+               data-client="Educational Video"
+               data-views=""
+               data-description="Structured the lesson into a clear narrative, tightening pauses and transitions to keep the educational content easy to follow.">
+            <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+              <img src="https://i.postimg.cc/ncMcPCD5/5447617990493936545-121.jpg" alt="Thumbnail for long-form educational edit 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/10"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-emerald-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 border border-white/30">
+                  <i data-lucide="play" class="w-5 h-5 fill-current ml-1"></i>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white">Long-Form Edit</span>
+            </div>
+            <div class="p-4 space-y-2">
+              <h4 class="font-heading font-bold text-white text-base group-hover:text-emerald-300 transition-colors">Educational Edit 01</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Structured the lesson into a clear narrative, tightening pauses and transitions to keep it easy to follow.</p>
+            </div>
+          </div>
+
+          <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+               data-category="long"
+               data-orientation="landscape"
+               data-youtube-id="52QrHWX0HUc"
+               data-title="Long-Form Educational Edit 02"
+               data-client="Educational Video"
+               data-views=""
+               data-description="Shaped a steady, engaging pace with clean cuts and smooth transitions so each concept flows naturally into the next.">
+            <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+              <img src="https://i.postimg.cc/76xqM64B/5447617990493936547-121.jpg" alt="Thumbnail for long-form educational edit 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/10"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-emerald-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 border border-white/30">
+                  <i data-lucide="play" class="w-5 h-5 fill-current ml-1"></i>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white">Long-Form Edit</span>
+            </div>
+            <div class="p-4 space-y-2">
+              <h4 class="font-heading font-bold text-white text-base group-hover:text-emerald-300 transition-colors">Educational Edit 02</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Clean cuts and smooth transitions keep each concept flowing naturally into the next.</p>
+            </div>
+          </div>
+
+          <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+               data-category="long"
+               data-orientation="landscape"
+               data-youtube-id="y3YoOOko97s"
+               data-title="Long-Form Educational Edit 03"
+               data-client="Educational Video"
+               data-views=""
+               data-description="Refined the long-form presentation with focused pacing and thoughtful sequencing to make detailed ideas accessible.">
+            <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+              <img src="https://i.postimg.cc/rwK0xfjy/5447617990493936551-121.jpg" alt="Thumbnail for long-form educational edit 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/10"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-emerald-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 border border-white/30">
+                  <i data-lucide="play" class="w-5 h-5 fill-current ml-1"></i>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white">Long-Form Edit</span>
+            </div>
+            <div class="p-4 space-y-2">
+              <h4 class="font-heading font-bold text-white text-base group-hover:text-emerald-300 transition-colors">Educational Edit 03</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Focused pacing and thoughtful sequencing make detailed ideas easier to follow.</p>
+            </div>
+          </div>
+
+          <div class="video-card glass-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+               data-category="long"
+               data-orientation="landscape"
+               data-youtube-id="LF0b7mN2-ns"
+               data-title="Long-Form Educational Edit 04"
+               data-client="Educational Video"
+               data-views=""
+               data-description="Built a polished educational edit by organizing key points, trimming distractions, and maintaining a consistent rhythm.">
+            <div class="relative aspect-video-card bg-slate-900 overflow-hidden">
+              <img src="https://i.postimg.cc/rmcwnj1s/5447617990493936550-121.jpg" alt="Thumbnail for long-form educational edit 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/10"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-emerald-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 border border-white/30">
+                  <i data-lucide="play" class="w-5 h-5 fill-current ml-1"></i>
+                </div>
+              </div>
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white">Long-Form Edit</span>
+            </div>
+            <div class="p-4 space-y-2">
+              <h4 class="font-heading font-bold text-white text-base group-hover:text-emerald-300 transition-colors">Educational Edit 04</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">Key points, trimmed distractions, and a consistent rhythm shape this polished edit.</p>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -722,14 +833,14 @@
           <span>Primary Expertise</span>
         </div>
         <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Four Core Video Work Areas
+          Five Core Video Work Areas
         </h2>
         <p class="text-slate-400 text-sm sm:text-base">
-          I specialize exclusively in four key video editing disciplines to deliver top-tier visual content.
+          I specialize in five key video editing disciplines to deliver top-tier visual content.
         </p>
       </div>
 
-      <!-- 4 Specialty Cards Grid -->
+      <!-- 5 Specialty Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- Specialty 1: Motion Graphics -->
@@ -747,12 +858,27 @@
           </div>
         </div>
 
-        <!-- Specialty 2: Social Media Edits -->
+        <!-- Specialty 2: Long-Form Editing -->
+        <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+            <i data-lucide="book-open" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-white text-xl">2. Long-Form Editing</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Educational videos shaped with clear structure, purposeful pacing, and smooth transitions that make detailed topics easier to follow.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Educational Content</span>
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">Storytelling & Pacing</span>
+          </div>
+        </div>
+
+        <!-- Specialty 3: Social Media Edits -->
         <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center">
             <i data-lucide="smartphone" class="w-6 h-6"></i>
           </div>
-          <h3 class="font-heading font-bold text-white text-xl">2. Social Media Edits</h3>
+          <h3 class="font-heading font-bold text-white text-xl">3. Social Media Edits</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
             High-retention short-form videos tailored for Instagram Reels, TikTok, and YouTube Shorts with dynamic subtitles, hooks, and engagement pop-ups.
           </p>
@@ -763,12 +889,12 @@
           </div>
         </div>
 
-        <!-- Specialty 3: Sound Design -->
+        <!-- Specialty 4: Sound Design -->
         <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center">
             <i data-lucide="volume-2" class="w-6 h-6"></i>
           </div>
-          <h3 class="font-heading font-bold text-white text-xl">3. Sound Design</h3>
+          <h3 class="font-heading font-bold text-white text-xl">4. Sound Design</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
             Rich Foley effects, crisp vocal cleanup, atmospheric ambient soundscapes, sub-bass impacts, and seamless music transition mixing.
           </p>
@@ -777,12 +903,12 @@
           </div>
         </div>
 
-        <!-- Specialty 4: Color Grade -->
+        <!-- Specialty 5: Color Grade -->
         <div class="glass-card rounded-2xl p-8 space-y-4 hover:-translate-y-1 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center">
             <i data-lucide="palette" class="w-6 h-6"></i>
           </div>
-          <h3 class="font-heading font-bold text-white text-xl">4. Color Grade</h3>
+          <h3 class="font-heading font-bold text-white text-xl">5. Color Grade</h3>
           <p class="text-slate-400 text-sm leading-relaxed">
             Cinematic color balancing in DaVinci Resolve, natural skin-tone correction, custom LUT generation, and shot-to-shot matching.
           </p>
